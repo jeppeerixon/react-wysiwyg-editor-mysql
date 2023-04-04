@@ -5,7 +5,7 @@ const pool = require('../dbcon')
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   const sql = 
-    `SELECT * FROM user`
+    `SELECT * FROM document`
         pool.execute(sql, (error, result) => {
             if (error) {
                 res.status(500).send('something went wrong')
