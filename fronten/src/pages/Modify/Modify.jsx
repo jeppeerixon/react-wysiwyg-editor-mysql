@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import { useState } from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from "react-draft-wysiwyg";
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -39,7 +39,6 @@ const Modify = () => {
         }, 
         body: JSON.stringify(theData),
       });
-      let resJson = await res.json();
       if (res.status === 201) {
         setTitle("");
         setInfo("");

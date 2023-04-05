@@ -1,19 +1,31 @@
+import { useState, useEffect } from 'react';
+import Doccard from './Doccard';
+
 const Overview = () => {
+
+  const [docs, setDocs] = useState([]);
+
+  const getAllDocuments = async () => {
+    const response = await fetch('http://localhost:3000/documents/');
+    const data = await response.json();
+
+    setDocs(data);
+  }
+
+  useEffect(() => {
+    getAllDocuments()
+  }, []);
+
+  console.log(docs)
 
     return (
         <>
         <h2>Overview</h2>
         <nav>
             <ul>
-              <li>
-                Document nr 1
-              </li>
-              <li>
-                Document 2 här
-              </li>
-              <li>
-                Sen document tre
-              </li>
+              {docs.map((doc) => {
+              return <Doccard props={doc} />
+              })}
             </ul>
         </nav>
         <div>
