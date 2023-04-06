@@ -11,9 +11,6 @@ const Doccard = ({ props }) => {
         let htmlBody = e.target.value;
         let docName = e.target.parentElement.firstChild.textContent;
         let docInfo = e.target.previousElementSibling.textContent;
-        console.log(htmlBody);
-        console.log(docName);
-        console.log(docInfo);
         navigate('/modify', {
             state: {
                 title: docName,

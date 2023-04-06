@@ -1,8 +1,10 @@
+import './start.scss';
+
 const Start = () => {
   
     return (
       
-      <form>
+      <form id="loginForm">
         <h2>Welcome</h2>
         <label>Username
             <input placeholder="Enter Username" type="text" id="username" name="username" required />

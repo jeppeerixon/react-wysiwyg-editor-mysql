@@ -7,6 +7,7 @@ import Modify from "./pages/Modify/Modify";
 import NoPage from "./pages/Nopage/Nopage";
 import Start from "./pages/Start/Start";
 import Create from "./pages/Create/Create";
+import './App.scss';
 
 
 export default function App() {

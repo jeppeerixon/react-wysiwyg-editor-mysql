@@ -4,6 +4,7 @@ import { Editor } from "react-draft-wysiwyg";
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
+import './create.scss';
 
 
 const Create = () => {
@@ -55,7 +56,7 @@ const Create = () => {
     return (
       <>
       <h1>Create document</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id='editorContainer'>
         <label>Title
               <input placeholder="Enter Title" type="text" id="title" name="title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
         </label>

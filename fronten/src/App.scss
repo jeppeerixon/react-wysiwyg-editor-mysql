@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+body {
+  background-color: $almost-white;
+  color: $almost-black;;
+  font-family: 'Rubik', sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 375px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}

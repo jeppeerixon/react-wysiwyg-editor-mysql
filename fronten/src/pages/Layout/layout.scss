@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+
+header {
+    display: flex;
+    min-width: 320px;
+
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font-size: 40px;
+        margin: 0;
+    }
+
+}
+
+nav {
+    display: flex;
+    min-height: 50px;
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+
+        li {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+        
+        li span {
+            padding-right: 2.5px;
+        }
+
+        li a {
+            color: $almost-black;
+            text-decoration: underline dotted $almost-black 1px;
+            padding-right: 10px;
+    
+        }
+    }
+    
+    
+}
