@@ -28,7 +28,7 @@ const Overview = () => {
               })}
             </ul>
         </nav>
-        <div>
+        <div id='docViewer'>
           Preview av documentet kommer här
         </div>
         </>

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import { useNavigate } from 'react-router-dom';
 
 const Doccard = ({ props }) => {
@@ -12,15 +13,25 @@ const Doccard = ({ props }) => {
             state: {
               movieId: movieID,
             }
-          });
-        
+          });        
     };
 
+    function htmlCoverter(rawHTML, theTitle) {
+        let docTitle = theTitle;
+        let htmlText = rawHTML;
+        return (
+            <>
+                <h1>{docTitle}</h1>
+                <div dangerouslySetInnerHTML={{ __html: htmlText }} />
+            </>
+        );
+    }
+
     const viewDocument = (e) => {
+        let docName = e.target.parentElement.firstChild.textContent;
         let docBody = e.target.value;
-        console.log(docBody);
-        
-        
+        const divven = ReactDOM.createRoot(document.getElementById('docViewer'));
+        divven.render(htmlCoverter(docBody, docName));
     };
 
     return (
