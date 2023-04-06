@@ -7,11 +7,11 @@ const Doccard = ({ props }) => {
     const navigate = useNavigate();
 
     const navigateToModify = (e) => {
-        let movieID = e.target.value;
-        console.log(movieID);
-        navigate('/title', {
+        let htmlBody = e.target.value;
+        console.log(htmlBody);
+        navigate('/modify', {
             state: {
-              movieId: movieID,
+              body: htmlBody,
             }
           });        
     };
@@ -39,7 +39,7 @@ const Doccard = ({ props }) => {
         <div>
         <h3> {props.title} </h3>
         <p> {props.info} </p>
-        <button value={props.user_id} onClick={navigateToModify}>Edit</button>
+        <button value={props.body} onClick={navigateToModify}>Edit</button>
         <button value={props.body} onClick={viewDocument}>View</button>
         </div>
         </>

@@ -6,7 +6,7 @@ import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 
 
-const Modify = () => {
+const Create = () => {
 
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
@@ -32,8 +32,8 @@ const Modify = () => {
     }
 
     try {
-      let res = await fetch("http://localhost:3000/documents/change", {
-        method: "PATCH",
+      let res = await fetch("http://localhost:3000/documents/add", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         }, 
@@ -54,7 +54,7 @@ const Modify = () => {
 
     return (
       <>
-      <h1>Modify</h1>
+      <h1>Create document</h1>
         <form onSubmit={handleSubmit}>
         <label>Title
               <input placeholder="Enter Title" type="text" id="title" name="title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
@@ -79,4 +79,4 @@ const Modify = () => {
 
   };
   
-export default Modify;
+export default Create;

@@ -6,6 +6,7 @@ import Overview from "./pages/Overview/Overview";
 import Modify from "./pages/Modify/Modify";
 import NoPage from "./pages/Nopage/Nopage";
 import Start from "./pages/Start/Start";
+import Create from "./pages/Create/Create";
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Start />} />
           <Route path="/Overview" element={<Overview />}/>
+          <Route path="/Create" element={<Create />} />
           <Route path="/Modify" element={<Modify />} />
           <Route path="*" element={<NoPage />} />
         </Route>
