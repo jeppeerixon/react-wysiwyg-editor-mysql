@@ -7,11 +7,18 @@ const Doccard = ({ props }) => {
     const navigate = useNavigate();
 
     const navigateToModify = (e) => {
+        //console.dir(e.target)
         let htmlBody = e.target.value;
+        let docName = e.target.parentElement.firstChild.textContent;
+        let docInfo = e.target.previousElementSibling.textContent;
         console.log(htmlBody);
+        console.log(docName);
+        console.log(docInfo);
         navigate('/modify', {
             state: {
-              body: htmlBody,
+                title: docName,
+                info: docInfo,
+                body: htmlBody,
             }
           });        
     };

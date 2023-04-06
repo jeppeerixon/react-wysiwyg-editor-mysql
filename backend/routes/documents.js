@@ -21,9 +21,22 @@ router.post('/add', function(req, res, next) {
     const sql = `INSERT INTO document(user_id, title, info, body) VALUE ('${user_id}', '${title}', '${info}', '${body}')`
                 pool.execute(sql, (error , result) => {
                     if (error) {
-                        res.status(500).json({message: 'The todo was too long, please shorten it down'})
+                        res.status(500).json({message: 'Sorry there was an error'})
                     } else {
-                        res.status(201).json({message: 'Todo was created!'})
+                        res.status(201).json({message: 'Document was created!'})
+                    }
+            })
+  });
+
+  router.patch('/change', function(req, res, next) {
+    console.log(req.body)
+    const { body, oldbody } = req.body
+    const sql = `UPDATE document SET body = '${body}' WHERE body = '${oldbody}' `
+                pool.execute(sql, (error , result) => {
+                    if (error) {
+                        res.status(500).json({message: 'Sorry there was an error'})
+                    } else {
+                        res.status(201).json({message: 'Document was UPDATED!'})
                     }
             })
   });
