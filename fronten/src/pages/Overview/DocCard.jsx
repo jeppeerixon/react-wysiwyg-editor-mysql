@@ -40,7 +40,7 @@ const Doccard = ({ props }) => {
 
     return (
         <>
-        <div>
+        <div className="docDivCard">
         <h3> {props.title} </h3>
         <p> {props.info} </p>
         <button value={props.body} onClick={navigateToModify}>Edit</button>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Doccard from './Doccard';
+import './overview.scss';
 
 const Overview = () => {
 
@@ -22,7 +23,7 @@ const Overview = () => {
         <>
         <h2>Overview</h2>
         <nav>
-            <ul>
+            <ul className='docList'>
               {docs.map((doc) => {
               return <Doccard props={doc} />
               })}

@@ -10,16 +10,20 @@ header {
     h1 {
         font-size: 40px;
         margin: 0;
+        padding: 15px;
     }
 
 }
 
-nav {
+.navMenu {
     display: flex;
     min-height: 50px;
+    background-color: $mid-purple;
+    min-width: 100vw;
 
     ul {
         padding-left: 0;
+        margin: 0;
         list-style: none;
         display: flex;
         justify-content: space-evenly;
@@ -39,10 +43,15 @@ nav {
 
         li a {
             color: $almost-black;
-            text-decoration: underline dotted $almost-black 1px;
+            text-decoration: none;
             padding-right: 10px;
     
         }
+
+        li a.active {
+            background-color: $high-pink;
+            padding: 16px;
+          }
     }
     
     

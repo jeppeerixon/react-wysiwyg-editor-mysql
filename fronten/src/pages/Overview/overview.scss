@@ -1,0 +1,34 @@
+@import '../../variables.scss';
+
+.docList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .docDivCard {
+        background-color: $light-green;
+        padding: 10px;
+        border-radius: 15px;
+        max-width: 150px;
+
+        h3 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: $high-pink;
+            padding: 5px 15px;
+            border: none;
+            box-shadow: 0 0 10px 2px rgba($color: black, $alpha: 0.1);
+            border-radius: 15px;
+    
+            &:hover {
+                background-color: $mid-purple;
+                box-shadow: 0 0 10px 2px rgba($color: black, $alpha: 0.3);
+            }
+        }
+    }
+
+
+}

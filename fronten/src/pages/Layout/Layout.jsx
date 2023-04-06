@@ -7,7 +7,7 @@ const Layout = () => {
     <>
     <div>
       <header>
-        <h1>J-Cloud</h1>       
+        <h1>iDriveOneBox</h1>       
       </header>      
       <Navbar />
     </div>
