@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from "react-draft-wysiwyg";
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -9,9 +9,17 @@ import './create.scss';
 
 const Create = () => {
 
-  //if localstorage == loggedIn -> visa <form>
-  //else "vänligen logga in för att skapa document"
-  //kanske lägga in i en funktion? checkIfLoggedIn()
+  const [login, setLogin] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedIn");
+    if (storedUser) {
+      setLogin(storedUser);
+      let editorContainer = document.querySelector('#editorContainer')
+      editorContainer.style.display = 'flex'
+    }
+    
+  }, []);
 
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
@@ -60,7 +68,7 @@ const Create = () => {
     return (
       <>
       <h1>Create document</h1>
-        <form onSubmit={handleSubmit} id='editorContainer'>
+        <form onSubmit={handleSubmit} id='editorContainer' style={{display: 'none'}}>
         <label>Title
               <input placeholder="Enter Title" type="text" id="title" name="title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
         </label>

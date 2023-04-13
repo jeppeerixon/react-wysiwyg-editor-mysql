@@ -10,11 +10,7 @@ const Start = () => {
     const storedUser = localStorage.getItem("loggedIn");
     if (storedUser) {
       setLogin(storedUser);
-      navigate('/overview', {
-        state: {
-            username: storedUser,
-        }
-      });
+      navigate('/overview');
     }
   }, []);
 
@@ -95,7 +91,7 @@ const Start = () => {
     return (
       <>
       <form id="loginForm" onSubmit={handleLoginSubmit}>
-        <h2>Welcome {login}</h2>
+        <h2>Welcome</h2>
         <label>Username
             <input placeholder="Enter Username" type="text" id="username" name="username" required value={user} onChange={(e) => setUser(e.target.value)}/>
         </label>
