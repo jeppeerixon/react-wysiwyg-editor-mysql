@@ -7,6 +7,9 @@ const Overview = () => {
   const [docs, setDocs] = useState([]);
 
   const getAllDocuments = async () => {
+    //if localstorage == loggedIn -> kör fetchen
+    //else "vänligen logga in för att se documenten"
+
     const response = await fetch('http://localhost:3000/documents/');
     const data = await response.json();
 
@@ -30,7 +33,6 @@ const Overview = () => {
             </ul>
         </nav>
         <div id='docViewer'>
-          Preview av documentet kommer här
         </div>
         </>
     )

@@ -9,6 +9,10 @@ import './create.scss';
 
 const Create = () => {
 
+  //if localstorage == loggedIn -> visa <form>
+  //else "vänligen logga in för att skapa document"
+  //kanske lägga in i en funktion? checkIfLoggedIn()
+
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
   const [message, setMessage] = useState("");

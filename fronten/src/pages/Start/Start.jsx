@@ -1,13 +1,27 @@
 import './start.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 const Start = () => {
+
+  const [login, setLogin] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedIn");
+    if (storedUser) {
+      setLogin(storedUser);
+      navigate('/overview', {
+        state: {
+            username: storedUser,
+        }
+      });
+    }
+  }, []);
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [newuser, setNewuser] = useState("");
   const [newpassword, setNewpassword] = useState("");
-  const navigate = useNavigate();
 
   let handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +29,10 @@ const Start = () => {
       username: user,
       password: password,
     }
+
+    let storeUser = user
+    setLogin(user);
+    localStorage.setItem("loggedIn", storeUser);
 
     try {
       let res = await fetch("http://localhost:3000/users/login", {
@@ -38,7 +56,6 @@ const Start = () => {
     }
   };
 
-  // fetch.post funktion för register
   let handleRegisterSubmit = async (e) => {
     e.preventDefault();
     let newUser = {
@@ -64,7 +81,6 @@ const Start = () => {
       console.log(err);
     }
   };
-  // useEffect för localstorage ifall någon är inloggad
 
   function handleSignUp() {
     let regForm = document.querySelector('#registerForm')
@@ -79,7 +95,7 @@ const Start = () => {
     return (
       <>
       <form id="loginForm" onSubmit={handleLoginSubmit}>
-        <h2>Welcome</h2>
+        <h2>Welcome {login}</h2>
         <label>Username
             <input placeholder="Enter Username" type="text" id="username" name="username" required value={user} onChange={(e) => setUser(e.target.value)}/>
         </label>
